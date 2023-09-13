@@ -1,0 +1,329 @@
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    font-weight: bold; /* Negrita */
+    background-color: #f0f0f0;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+
+.info{
+    display: flex;
+    flex-direction: row;
+}
+.inicio{
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: center; /* Centra verticalmente los elementos */
+}
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.super-gato {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 55vw; /* Puedes ajustar el ancho como desees */
+    height: 55vw;
+    margin-top: 50px;
+    background-color: #f0f0f0;
+    position: relative; /* Necesario para contenido interno absoluto */
+}
+.super-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.6vw;
+    width: 85.8%;
+    height: 100%;
+    margin: 0.3vw;
+    padding: 0.9vw;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 900px) {
+    .super-gato{
+        width: 100vw;
+        height: 100vw;
+    }
+}
+
+.super-cell {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.3vw;
+    width: 98%;
+    height: 98%;
+    background-color: transparent;
+    position: relative;
+}
+
+.super-board button {
+    display: flex;
+    width: 100%; /* Establece un ancho fijo para el botón */
+    height: 100%; /* Establece una altura fija para el botón */
+    background-color: #3498db;
+    color: #fff;
+    font-size: 200%;
+    font-weight: bold; /* Negrita */
+    border: none;
+    cursor: pointer;
+    line-height: 0%;
+    text-shadow: #ccc;
+    border-radius: 10%; /* Agrega esquinas redondeadas (opcional) */
+    align-items: center; /* Alinea el texto al centro horizontalmente */
+    justify-content: center;
+}
+
+.winner-marker {
+    display: none;
+    background-color: #ffffff; /* Color de fondo */
+    color: #000000; /* Color del texto */
+    font-size: 9vw; /* Tamaño de fuente grande */
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Alineación de texto al centro */
+    padding: 0.6vw; /* Espaciado interno */
+    border-radius: 0.6vw; /* Bordes redondeados */
+    margin: 0; /* Elimina el margen para que ocupe todo el espacio */
+    position: absolute; /* Posición absoluta */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    line-height: 1.5; /* Controla el espaciado vertical */
+    max-width: 100%;
+    max-height: 100%;
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: center; 
+}
+
+
+
+.super-board button:hover {
+    background-color: #2980b9;
+}
+.super-board button:disabled{
+    background-color: #ccc; /* Cambia el color de fondo */
+    pointer-events: none; /* Deshabilita los eventos del ratón (no se pueden hacer clics) */
+    opacity: 0.1; /* Reduce la opacidad para indicar que está deshabilitado */
+    cursor: not-allowed; /* Cambia el cursor a "no permitido" */
+
+}
+
+.turno {
+    background-color: #3498db; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    font-size: 1.2vw; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Alineación de texto al centro */
+    padding: 0.3vw; /* Espaciado interno */
+    border-radius: 0.6vw; /* Bordes redondeados */
+    height: 5.5vw;
+    width: 12.4vw;
+    margin: 0.3vw; /* Margen superior e inferior */
+}
+
+.tiempo {
+    display: flex;
+    background-color: #3498db; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    font-size: 3.2vw; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: center; /* Centra verticalmente los elementos */
+    text-align: center; /* Alineación de texto al centro */
+    padding: 0.3vw; /* Espaciado interno */
+    border-radius:  0.6vw; /* Bordes redondeados */
+    height: 5.5vw;
+    width: 12.4vw;
+    margin: 0.3vw; /* Margen superior e inferior */
+}
+h1{
+    margin: 0px;
+}
+.labelturno {
+    text-align: center;
+    font-size: 4.2vw;
+    margin: 0;
+    height: 4.2vw;
+
+}
+.cont-btn-inicio{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+#btn-inicio{
+    height: 40px;
+    width: 130px;
+    font-size: 18px;
+    line-height:normal; 
+    background-color: #3498db;
+    color: #fff;
+    font-weight: bold; /* Negrita */
+    border: none;
+    cursor: pointer;
+    border-radius: 10px; /* Agrega esquinas redondeadas (opcional) */
+    text-align: center; /* Alinea el texto al centro horizontalmente */
+    padding: 0; /* Elimina el espaciado interno */
+}
+#btn-inicio:hover{
+    background-color: #2980b9;
+}
+h5{
+    height: 0.8vw;
+    margin: 0 0.3vw;
+}
+
+.cont-reset button {
+    background-color: #3498db; /* Cambia el color de fondo */
+    color: #000; /* Cambia el color del texto a negro */
+    font-size: 18px; /* Cambia el tamaño de fuente */
+    border: none; /* Quita el borde */
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px; /* Agrega esquinas redondeadas */
+    padding: 0; /* Espaciado interno (vertical horizontal) */
+    line-height: 40px; /* Centra verticalmente el texto en el botón */
+}
+
+.cont-reset button:hover {
+    background-color: #2980b9; /* Cambia el color de fondo al pasar el mouse */
+}
+
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+
+.victory-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.victory-message-content {
+    background-color: #007bff;
+    color: white;
+    font-size: 18vw;    
+    text-align: center;
+    padding: 1.2vw;
+    animation: bounce 1s ease infinite;
+    transform: translateZ(0); /* Activa el renderizado en 3D */
+}
+
+.victory-text {
+    display: inline-block;
+    transform-origin: center;
+    transform: translateZ(100px); /* Mueve el texto al espacio 3D */
+    perspective: 1000px; /* Añade perspectiva 3D */
+    font-size: 15vw;
+    color: white;
+    text-align: center;
+    transform-style: preserve-3d;
+    animation: changeColor 1s linear infinite;
+}
+
+.space {
+    display: inline-block;
+    opacity: 0;
+    width: 0.5em; /* Ancho del espacio */
+    transform-origin: center;
+    animation: revealText 0.5s ease-in forwards;
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+    font-size: 14vw;
+    transform-origin: center;
+    animation: revealText 0.5s ease-in forwards;
+}
+
+.letter:nth-child(1) {
+    animation-delay: 0s;
+    transform: scale(1.5);
+}
+
+.letter:nth-child(2) {
+    animation-delay: 0.2s;
+    transform: scale(1.5);
+}
+
+.letter:nth-child(3) {
+    animation-delay: 0.4s;
+    transform: scale(1.5);
+}
+
+.letter:nth-child(4) {
+    animation-delay: 0.6s;
+    transform: scale(1.5);
+}
+
+.letter:nth-child(5) {
+    animation-delay: 0.8s;
+    transform: scale(1.5);
+}
+
+.letter:nth-child(6) {
+    animation-delay: 1s;
+    transform: scale(1.5);
+}
+
+@keyframes revealText {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+
+/* Animación de cambio de color para todas las letras */
+@keyframes changeColor {
+    0%, 100% {
+        color: #FF5733; /* Rojo anaranjado */
+    }
+    16.67% {
+        color: #FFC300; /* Amarillo */
+    }
+    33.33% {
+        color: #FFDC00; /* Amarillo dorado */
+    }
+    50% {
+        color: #4CAF50; /* Verde */
+    }
+    66.67% {
+        color: #3498db; /* Azul */
+    }
+    83.33% {
+        color: #8e44ad; /* Morado */
+    }
+}
+
